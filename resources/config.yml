@@ -1,0 +1,11 @@
+---
+# FantasyStopTransfer Configuration File
+# Plugin By Enrick3344
+
+# Decide if Players will get transfered of not on server stop
+Transfer: false
+
+# The Ip adress and the port of the server the players will be transfered to.
+IP-Adress: ""
+Port: ""
+...
