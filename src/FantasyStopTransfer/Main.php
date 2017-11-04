@@ -18,6 +18,9 @@ class Main extends PluginBase implements Listener{
         if($this->getConfig()->get("Transfer") == false){
             $this->getServer()->getLogger()->notice("Transfer is set to false in config. Players won't be transfered on server stop.");
             $this->getServer()->getLogger()->notice("Make sure to set your IP-Adress and Port in the configuration file");
+        }else{
+            $cfg = $this->getConfig();
+            $this->getServer()->getLogger()->notice("Transfer is set to true! Players will be transfered to ".$cfg->get("IP-Adress").";".$cfg->get("Port"). " on server stop.");
         }
     }
     
