@@ -15,6 +15,10 @@ class Main extends PluginBase implements Listener{
         $this->saveDefaultConfig();
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getLogger()->notice("FantasyStopTransfer by Enrick3344 Enabled!");
+        if($this->getConfig()->get("Transfer") == false){
+            $this->getServer()->getLogger()->notice("Transfer is set to false in config. Players won't be transfered on server stop.");
+            $this->getServer()->getLogger()->notice("Make sure to set your IP-Adress and Port in the configuration file");
+        }
     }
     
     public function onDisable(){
