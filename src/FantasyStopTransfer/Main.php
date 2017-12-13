@@ -27,9 +27,14 @@ class Main extends PluginBase implements Listener{
     public function onDisable(){
         $ipadress = $this->getConfig()->get("IP-Adress");
         $port = $this->getConfig()->get("Port");
+        if
         if($this->getConfig()->get("Transfer") == true){
             foreach($this->getServer()->getOnlinePlayers() as $players){
-                $players->transfer($ipadress, $port);
+                if($players->hasPermission("funworldtransfer.bypass"){
+                   return false; 
+                }else{
+                    $players->transfer($ipadress, $port);
+                }
             }
         }
     }
