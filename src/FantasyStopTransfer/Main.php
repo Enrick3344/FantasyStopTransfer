@@ -31,7 +31,6 @@ class Main extends PluginBase implements Listener{
             if($players->hasPermission("funworldtransfer.bypass")){
                 return false;   
             }else{
-                foreach($this->getServer()->getOnlinePlayers() as $players){
                     $players->transfer($ipadress, $port);
             }
         }
