@@ -24,17 +24,19 @@ class Main extends PluginBase implements Listener{
         }
     }
     
-    public function onDisable(){
+    public function transferPlayers(Player $players){
         $ipadress = $this->getConfig()->get("IP-Adress");
         $port = $this->getConfig()->get("Port");
-        if($this->getConfig()->get("Transfer") == true){
+        if($players->hasPermission("funworldtransfer.bypass")){
+            return false;   
+        }elseif($this->getConfig()->get("Transfer") == true){
             foreach($this->getServer()->getOnlinePlayers() as $players){
-                if($players->hasPermission("funworldtransfer.bypass")){
-                    return false;
-                }else{
-                    $players->transfer($ipadress, $port);
-                }
+                $players->transfer($ipadress, $port);
             }
         }
+    }
+    public function onDisable(){
+        $players = $this->getServer()->getOnlinePlayers();
+        $this->transferPlayers($players);
     }
 }
